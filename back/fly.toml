@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for sangwon7242-app-8 on 2026-01-04T10:15:13+09:00
+# fly.toml app configuration file generated for nekopunch-app-1 on 2026-01-04T11:04:19+09:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'sangwon7242-app-8'
+app = 'nekopunch-app-1'
 primary_region = 'nrt'
 
 [build]
