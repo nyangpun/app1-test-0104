@@ -17,7 +17,7 @@ public class Api1V1PostController {
 
   @GetMapping
   public List<Post> getItems() {
-    System.out.println("코드 수정됨!");
+    System.out.println("코드 수정됨");
     return postService.getPosts();
   }
 }
