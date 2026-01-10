@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class Api1V1PostControllerTest {
     // when
 
     // 1. API 호출
-    var resultActions = mvc
+    ResultActions resultActions = mvc
         .perform(get("/api/v1/posts"))
         .andDo(print());
 
