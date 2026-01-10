@@ -4,10 +4,7 @@ import com.back.global.app.AppConfig;
 import com.back.global.rq.Rq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -21,7 +18,6 @@ import java.util.UUID;
 @RequestMapping("/")
 @RequiredArgsConstructor
 public class HomeController {
-
     private final Rq rq;
 
     @GetMapping
@@ -34,13 +30,11 @@ public class HomeController {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Runs in any environment");
         // log.info("Runs in any environment");
         log.debug("Run in dev/prod environments");
 
         return "main(version : 1.0.0), hostname : %s".formatted(localHost.getHostName());
     }
-
 
     @GetMapping("/cookie/{name}/{value}")
     public String setCookie(@PathVariable String name, @PathVariable String value) {
@@ -67,5 +61,20 @@ public class HomeController {
         }
 
         return AppConfig.getSiteBackUrl() + "/gen/" + fileName;
+    }
+
+    @GetMapping("/session/{name}/{value}")
+    public String setSession(@PathVariable String name, @PathVariable String value) {
+        rq.setSession(name, value);
+
+        return "%s=%s".formatted(name, value);
+    }
+
+    @GetMapping("/session/{name}")
+    public String setSession(@PathVariable String name) {
+
+        String sessionValue = rq.getSessionValueAsStr(name);
+
+        return sessionValue != null ? sessionValue : "";
     }
 }
