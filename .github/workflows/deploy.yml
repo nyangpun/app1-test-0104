@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: application-secret.yaml 생성
-        env: # APPLICATION_SECRET_YAML
+        env:
           APPLICATION_SECRET: ${{ secrets.APPLICATION_SECRET_YAML }}
         run: echo "$APPLICATION_SECRET" > back/src/main/resources/application-secret.yaml
       - uses: superfly/flyctl-actions/setup-flyctl@master
