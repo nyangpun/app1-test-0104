@@ -92,5 +92,5 @@ public class AppConfig {
 
   public static String getSiteCookieDomain() { return siteCookieDomain; }
 
-  public static String getGenfileDirPath() { return genFileDirPath; }
+  public static String getGenFileDirPath() { return genFileDirPath; }
 }
