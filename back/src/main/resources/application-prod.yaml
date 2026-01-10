@@ -27,3 +27,5 @@ custom:
     frontUrl: "${custom.prod.frontUrl}"
     backUrl: "${custom.prod.backUrl}"
     name: APP1
+  genFile:
+    dirPath: /gen
