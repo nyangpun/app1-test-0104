@@ -1,4 +1,6 @@
 spring:
+  autoconfigure:
+    exclude:
   datasource:
     url: jdbc:postgresql://nekopunch-db-1.internal:5432/app_0104_prod # 운영환경 DB
     username: postgres
